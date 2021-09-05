@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .person-item{
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      border: 1px solid black;
+      margin: 1rem;
+    }
+    .person-item:hover{
+      background-color: blue;
+    }
+    p{
+      color: blue;
+    }
+  </style>
+</head>
+
+
+<body>
+  <h1>Página inicial teste</h1>
+  <div>
+    {% for person in persons %}
+    <div class = 'person-item' >
+      <p>Nome: {{ person.name }}</p>
+      <p>Endereço: {{ person.address }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>
