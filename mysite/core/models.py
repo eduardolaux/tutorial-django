@@ -12,12 +12,12 @@ class Person(models.Model):
   """ Campo para gerar escolhas """
   gender = models.CharField(max_length=1, choices = GENDERS, blank = False, null = False)
   """ Campo de caracteres """
-  location = models.CharField()
-  email = models.CharField()
-  telephone = models.CharField()
-  address = models.CharField()
+  location = models.CharField(max_length = 100)
+  email = models.CharField(max_length = 100)
+  telephone = models.CharField(max_length = 100)
+  address = models.CharField(max_length = 100)
 
-  
+#%%  
 class Place(models.Model):
   CLASSE = (
           ('B', 'Baixo'),
@@ -29,7 +29,7 @@ class Place(models.Model):
           ('U', 'Urbano'),
           ('R', 'Rural')
           )
-  person = models.ForeignKey("Person", on_delete = models.CASCADE, related_name = 'NPS lugar')
+  person = models.ForeignKey("Person", on_delete = models.CASCADE, related_name = 'person')
   address = models.CharField(max_length = 200, null = False, blank = False)
   """ Criar choices """
   noise_level = models.CharField(max_length = 1, choices = CLASSE, blank = False, null = False)
