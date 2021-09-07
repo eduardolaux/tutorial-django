@@ -21,6 +21,17 @@
     p{
       color: black;
     }
+    .item-list{
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      border-radius: 10px;
+      background-color: gray;
+    }
+    div{
+      background-color: white;
+    }
   </style>
 </head>
 
@@ -35,11 +46,17 @@
       <p>Sexo: {{ person.gender }}</p>
       <p>Endereço: {{ person.address }}</p>
       <p>Numero: {{ person.telephone }}</p>
+      <div class = 'item-list'>
+        <p>Lugares cadastrados</p>
+        {% for place in person.places_list %}
+          <p>Endereço: {{place.address}}</p>
+        {% endfor %}
+      <div>
     </div>
     {% endfor %}
   </div>
   
-  <h2>Lugar:</h2>
+<!--   <h2>Lugar:</h2>
   <div>
     {% for place in places %}
     <div class = 'place-item' >
@@ -48,7 +65,7 @@
       <p>Tipo de zona: {{ place.place_type }}</p>
     </div>
     {% endfor %}
-  </div>
+  </div> -->
 
 </body>
 
