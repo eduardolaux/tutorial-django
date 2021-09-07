@@ -29,7 +29,7 @@ class Place(models.Model):
           ('U', 'Urbano'),
           ('R', 'Rural')
           )
-  person = models.ForeignKey("Person", on_delete = models.CASCADE, related_name = 'person')
+  person = models.ForeignKey("Person", on_delete = models.CASCADE, related_name = 'places')
   address = models.CharField(max_length = 200, null = False, blank = False)
   """ Criar choices """
   noise_level = models.CharField(max_length = 1, choices = CLASSE, blank = False, null = False)
