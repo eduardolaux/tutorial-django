@@ -16,25 +16,40 @@
       margin: 1rem;
     }
     .person-item:hover{
-      background-color: blue;
+      background-color: red;
     }
     p{
-      color: blue;
+      color: black;
     }
   </style>
 </head>
 
 
 <body>
-  <h1>Página inicial teste</h1>
+
+  <h1>Usuários:</h1>
   <div>
     {% for person in persons %}
     <div class = 'person-item' >
       <p>Nome: {{ person.name }}</p>
+      <p>Sexo: {{ person.gender }}</p>
       <p>Endereço: {{ person.address }}</p>
+      <p>Numero: {{ person.telephone }}</p>
     </div>
     {% endfor %}
   </div>
+  
+  <h2>Lugar:</h2>
+  <div>
+    {% for place in places %}
+    <div class = 'place-item' >
+      <p>Endereço: {{ place.adress }}</p>
+      <p>Nível de ruído: {{ place.noise_level }}</p>
+      <p>Tipo de zona: {{ place.place_type }}</p>
+    </div>
+    {% endfor %}
+  </div>
+
 </body>
 
 </html>
