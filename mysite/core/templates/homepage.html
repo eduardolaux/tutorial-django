@@ -8,20 +8,23 @@
   <title>Document</title>
 
   <style>
-    .person-item{
+    .person-item {
       display: flex;
       flex-direction: column;
       padding: 1rem;
       border: 1px solid black;
       margin: 1rem;
     }
-    .person-item:hover{
+
+    .person-item:hover {
       background-color: red;
     }
-    p{
+
+    p {
       color: black;
     }
-    .item-list{
+
+    .item-list {
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -29,7 +32,8 @@
       border-radius: 10px;
       background-color: gray;
     }
-    div{
+
+    div {
       background-color: white;
     }
   </style>
@@ -41,22 +45,22 @@
   <h1>Usuários:</h1>
   <div>
     {% for person in persons %}
-    <div class = 'person-item' >
+    <div class='person-item '>
       <p>Nome: {{ person.name }}</p>
       <p>Sexo: {{ person.gender }}</p>
       <p>Endereço: {{ person.address }}</p>
       <p>Numero: {{ person.telephone }}</p>
-      <div class = 'item-list'>
+      <div class='item-list'>
         <p>Lugares cadastrados</p>
-        {% for place in person.places_list %}
+        {% for place in person.places %}
           <p>Endereço: {{place.address}}</p>
         {% endfor %}
-      <div>
+      </div>
     </div>
     {% endfor %}
   </div>
-  
-<!--   <h2>Lugar:</h2>
+
+  <!--   <h2>Lugar:</h2>
   <div>
     {% for place in places %}
     <div class = 'place-item' >
