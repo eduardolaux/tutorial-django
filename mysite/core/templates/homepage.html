@@ -1,64 +1,146 @@
 <!DOCTYPE html>
+
+{% load static %}
+
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <title>Página Inicial - Caracterização de ruído em regiões</title>
 
-  <style>
-    .person-item {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      border: 1px solid black;
-      margin: 1rem;
-    }
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/core.css' %}">
 
-    .person-item:hover {
-      background-color: red;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    p {
-      color: black;
-    }
+      <style>
+        .page-header {
+          text-align: center;
+          background-color: #C25100;
+          margin-top: 0;
+          padding: 20px 20px 20px 40px;
+        }
+        .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+        color: rgba(255, 247, 0, 0.5);
+        font-size: 36pt;
+        text-decoration: none;
+        }
+        
+        h1{
+        text-align: center;
+        color: black;
+        font-family: 'Lobster', cursive;
+        }
+        
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #006400;
+        }
 
-    .item-list {
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid black;
-      border-radius: 10px;
-      background-color: gray;
-    }
+        li {
+        float: left;
+        }
 
-    div {
-      background-color: white;
-    }
-  </style>
-</head>
+        li a {
+            display: block;
+            color: rgba(255, 247, 0, 0.5);
+            text-align: center;
+            padding: 15px 90px;
+            text-decoration: none;
+            font-family: 'Lobster', cursive;
+            font-size: 16pt;
+        }
 
+        li a:hover {
+            background-color: #111;
+        }
+        
+        .active {
+        background-color: #4CAF50;
+        }
 
-<body>
+        h3{
+        text-align: left;
+        color: black;
+        font-family: 'Lobster', cursive;
+        font-size: 14pt;
+        }
 
-  <h1>Usuários:</h1>
-  <div>
-    {% for person in persons %}
-    <div class='person-item '>
-      <p>Nome: {{ person.name }}</p>
-      <p>Sexo: {{ person.gender }}</p>
-      <p>Endereço: {{ person.address }}</p>
-      <p>Numero: {{ person.telephone }}</p>
-      <div class='item-list'>
-        <p>Lugares cadastrados</p>
-        {% for place in person.places %}
-          <p>Endereço: {{place.address}}</p>
-        {% endfor %}
-      </div>
+        .person-item {
+          display: flex;
+          flex-direction: column;
+          padding: 1rem;
+          border: 1px solid black;
+          margin: 1rem;
+        }
+
+        .person-item:hover {
+          background-color: green;
+        }
+
+        p {
+          color: black;
+        }
+
+        .item-list {
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          border: 1px solid black;
+          border-radius: 10px;
+          background-color: rgb(255, 244, 92);
+        }
+
+        div {
+          background-color: white;
+        }
+
+    body {
+      padding-left: 15px;
+  }
+      </style>
+  </head>
+  
+  <body>
+    <div class="page-header">
+    <h1>Conheça a característica sonora das regiões de seu interesse</h1>
     </div>
-    {% endfor %}
-  </div>
+    <h2>Conheça o nível de ruído da zona em que você mora/pretende morar</h2>
+
+    <ul>
+      <li><a href="/">Página inicial</a></li>
+      <li><a href="/">Sobre</a></li>
+      <li><a href="/">Equipe</a></li>
+      <li><a href="/">Cadastro</a></li>
+      <li><a href="/">Contato</a></li>
+    </ul>
+
+    <br>
+
+    <h3>Usuários:</h3>
+    
+    <div>
+      {% for person in persons %}
+      <div class='person-item '>
+        <p>Nome: {{ person.name }}</p>
+        <p>Sexo: {{ person.gender }}</p>
+        <p>Endereço: {{ person.address }}</p>
+        <p>Numero: {{ person.telephone }}</p>
+        <div class='item-list'>
+          <p>Lugares cadastrados</p>
+          {% for place in person.places %}
+            <p>Endereço: {{place.address}}</p>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
 
   <!--   <h2>Lugar:</h2>
   <div>
@@ -71,6 +153,6 @@
     {% endfor %}
   </div> -->
 
-</body>
+  </body>
 
 </html>
